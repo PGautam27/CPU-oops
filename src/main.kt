@@ -2,6 +2,7 @@ import CASE.Case
 
 fun main() {
     print("Do you wanna switch on the computer? Yes or No: ")
+
     var k:String = readLine().toString()
     var flag: Boolean = k.lowercase()=="yes"
     while (flag){
