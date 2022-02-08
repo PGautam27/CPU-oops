@@ -2,10 +2,11 @@ package CASE
 
 class MotherBoard{
     var start:Boolean = false
-    val k = monitor()
-    val hd = hardDisk()
-    val rc = ramCard()
-    private var usbPort:Boolean = false
+    private val k = monitor()
+    private val hd = hardDisk()
+    private val rc = ramCard()
+    var usbPort:Boolean = false
+    var audioJack:Boolean = false
 
     inner class CPU(){
         init {
@@ -16,24 +17,40 @@ class MotherBoard{
                 while (start){
                     var s = k.display()
                     when(s){
-                        1 -> usbPort = true
+                        1 -> {
+                            usbPort = true
+
+                        }
                         2 -> gpu().connect()
                         3 -> {
                             rc.connect()
                             var s = ramCard().fetch()
                             println(s)
+                            println("Would you like to see the balance and capacity of the storage: ")
+                            var y = readLine()
+                            if (y.toString() == "yes"){
+                                hd.capacityBalance()
+                            }
                         }
                         4 -> {
                             hd.connect()
                             println("Enter a value of Int: ")
                             var x: Int = Integer.valueOf(readLine())
                             hd.store(x)
+
                         }
                         5 -> {
                             println("Do you wanna power off?")
-                            start = false
-                            smps(null)
-                            return
+                            var yesOrNo = readLine()
+                            if (yesOrNo.toString() == "yes"){
+                                smps(null)
+                                return
+                            }
+                            else{
+                                println("Ok")
+                                continue
+                            }
+
                         }
                         else -> println("Sorry can't do the function right now")
                     }
@@ -56,7 +73,6 @@ class MotherBoard{
         private var conEstablishment:Boolean =false
         override fun connect() {
             conEstablishment = true
-            println("Successful connection in ram")
         }
 
         override fun fetch():ArrayList<Int> {

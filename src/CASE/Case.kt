@@ -6,8 +6,8 @@ class Case {
 
 fun main() {
     print("Enter the voltage supplied for the socket: ")
-    val volatage:Int = Integer.valueOf(readLine())
-    val k = smps(volatage)
+    val voltage:Int = Integer.valueOf(readLine())
+    val k = smps(voltage)
     if(k.powerSocket==null){
         return
     }
@@ -18,8 +18,6 @@ fun main() {
     if (!s){
         return
     }
-
-
 }
 
 

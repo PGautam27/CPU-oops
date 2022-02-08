@@ -1,5 +1,9 @@
 package CASE
 
+data class hardDiskStorage(
+    val x:Int
+)
+
 class hardDisk:sata{
     var connect:Boolean = false
     private var capacity:Int = 100
@@ -7,10 +11,8 @@ class hardDisk:sata{
     private var arrayList: ArrayList<Int> = ArrayList<Int>()
     override fun connect() {
         connect = true
-        println("True connection for hardDisk")
     }
     fun store(a:Int){
-        println(connect)
         if (connect){
             if (a <=1000){
                 balance -= 2
@@ -26,7 +28,6 @@ class hardDisk:sata{
             }
 
         }
-        print(arrayList)
     }
 
     override fun capacityBalance() {

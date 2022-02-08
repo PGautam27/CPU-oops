@@ -14,14 +14,19 @@ class smps(PowerValue: Int?){
             println("Sorry the voltage $PowerValue is too high or too low")
             powerSocket = null
         }
+        else if (s==-2){
+            println("Powering off")
+        }
     }
     fun changeState(a:String):Boolean{
         return if (a=="yes"){
             k.start = powerButton && live && earth && neutral
             k.CPU()
+            states.powerOn
             true
         } else {
             println("Not powering on")
+            states.powerOff
             false
         }
     }
@@ -31,7 +36,11 @@ class smps(PowerValue: Int?){
         }
     }
     private fun breakLive():Int{
-        if (powerSocket!! in 210..240){
+        if (powerSocket == null){
+            k.start = false
+            return -2
+        }
+        else if(powerSocket!! in 210..240){
             live = true
             earth = true
             neutral = true
