@@ -29,7 +29,9 @@ class hardDisk:sata{
 
         }
     }
-
+    fun erase(){
+        arrayList = arrayListOf(0)
+    }
     override fun capacityBalance() {
         println("The capacity is$capacity GB")
         println("The balance is $balance GB")

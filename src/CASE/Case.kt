@@ -1,9 +1,5 @@
 package CASE
 
-class Case {
-
-}
-
 fun main() {
     print("Enter the voltage supplied for the socket: ")
     val voltage:Int = Integer.valueOf(readLine())
@@ -13,12 +9,10 @@ fun main() {
     }
     print("Do you want to power on the pc: ")
     val yesNO = readLine()
-    k.powerButton = true
     var s = k.changeState(yesNO.toString())
     if (!s){
         return
     }
-
 }
 
 

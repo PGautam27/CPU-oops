@@ -60,6 +60,9 @@ class MotherBoard{
             else
                 println("Sorry the pc won't work.")
         }
+        fun eraseAll(){
+            hd.erase()
+        }
     }
 
     inner class gpu: pci{

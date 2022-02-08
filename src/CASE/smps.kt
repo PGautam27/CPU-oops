@@ -1,13 +1,9 @@
 package CASE
-var state = states.POWEROFF
-var switch = switchOn.SWITCHOFF
+internal var state = states.POWEROFF
+internal var switch = switchOn.SWITCHOFF
 class smps(PowerValue: Int){
-    var powerSocket:Int = PowerValue
-    var powerButton:Boolean = false
+    private var powerSocket:Int = PowerValue
     var reset:Boolean = false
-    private var earth:Boolean = false
-    private var live:Boolean = false
-    private var neutral:Boolean = false
     val k:MotherBoard = MotherBoard()
     init {
         var s = breakLive()
@@ -28,20 +24,14 @@ class smps(PowerValue: Int){
     }
     fun reset(){
         if (reset){
-
+            k.CPU().eraseAll()
         }
     }
     private fun breakLive():Int{
         return if(powerSocket in 210..240){
             switch = switchOn.SWITCHON
-            live = true
-            earth = true
-            neutral = true
             1
         } else{
-            live = false
-            earth = false
-            neutral = false
             -1
         }
     }

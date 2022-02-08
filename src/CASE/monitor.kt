@@ -2,7 +2,6 @@ package CASE
 
 class monitor{
     fun display(): Int {
-        var case: Case = Case()
         println("Choose any on of the option")
         println("1.Do you wanna use the USB port")
         println("2.Do you wanna see images")
