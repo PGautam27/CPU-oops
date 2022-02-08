@@ -1,5 +1,6 @@
 package CASE
 var state = states.POWEROFF
+var switch = switchOn.SWITCHOFF
 class smps(PowerValue: Int){
     var powerSocket:Int = PowerValue
     var powerButton:Boolean = false
@@ -32,6 +33,7 @@ class smps(PowerValue: Int){
     }
     private fun breakLive():Int{
         return if(powerSocket in 210..240){
+            switch = switchOn.SWITCHON
             live = true
             earth = true
             neutral = true

@@ -8,3 +8,11 @@ enum class states() {
         }
     }
 }
+enum class switchOn(){
+    SWITCHON,SWITCHOFF;
+    companion object{
+        fun switchState(obj:switchOn):Boolean{
+            return obj.compareTo(SWITCHON)==0
+        }
+    }
+}

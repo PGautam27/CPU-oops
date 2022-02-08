@@ -44,6 +44,7 @@ class MotherBoard{
                             var yesOrNo = readLine()
                             if (yesOrNo.toString() == "yes"){
                                 state = states.POWEROFF
+                                switch = switchOn.SWITCHOFF
                                 return
                             }
                             else{
