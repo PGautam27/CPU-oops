@@ -1,7 +1,6 @@
-package CASE
-internal var state = states.POWEROFF
-internal var switch = switchOn.SWITCHOFF
-class smps(PowerValue: Int){
+package CASE.classPackage
+
+/*class smps(PowerValue: Int){
     private var powerSocket:Int = PowerValue
     var reset:Boolean = false
     val k:MotherBoard = MotherBoard()
@@ -35,4 +34,4 @@ class smps(PowerValue: Int){
             -1
         }
     }
-}
+}*/

@@ -1,6 +1,6 @@
-package CASE
+package CASE.classPackage
 
-class MotherBoard{
+/*class MotherBoard{
     private val k = monitor()
     private val hd = hardDisk()
     private val rc = ramCard()
@@ -86,4 +86,4 @@ class MotherBoard{
             return hd.fetch()
         }
     }
-}
+}*/

@@ -1,10 +1,11 @@
 package CASE
 
-data class hardDiskStorage(
+data class storage(
+    val name:String,
     val x:Int
 )
 
-class hardDisk:sata{
+/*class hardDisk:sata{
     var connect:Boolean = false
     private var capacity:Int = 100
     private var balance:Int = capacity
@@ -42,4 +43,4 @@ class hardDisk:sata{
         }
         return arrayListOf(0)
     }
-}
+}*/
