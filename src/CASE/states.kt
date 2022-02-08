@@ -1,5 +1,10 @@
 package CASE
 
 enum class states() {
-    powerOn, powerOff
+    POWERON, POWEROFF;
+    companion object{
+        fun State(obj:states):Boolean{
+            return obj.compareTo(POWERON)==0
+        }
+    }
 }

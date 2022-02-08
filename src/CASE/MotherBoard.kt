@@ -1,20 +1,20 @@
 package CASE
 
 class MotherBoard{
-    var start:Boolean = false
     private val k = monitor()
     private val hd = hardDisk()
     private val rc = ramCard()
     var usbPort:Boolean = false
     var audioJack:Boolean = false
-
     inner class CPU(){
         init {
             work()
         }
         private fun work(){
-            if (start){
-                while (start){
+            var st = states.State(state)
+            if (st){
+                while (st){
+                    st = states.State(state)
                     var s = k.display()
                     when(s){
                         1 -> {
@@ -43,7 +43,7 @@ class MotherBoard{
                             println("Do you wanna power off?")
                             var yesOrNo = readLine()
                             if (yesOrNo.toString() == "yes"){
-                                smps(null)
+                                state = states.POWEROFF
                                 return
                             }
                             else{
