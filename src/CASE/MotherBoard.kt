@@ -3,6 +3,8 @@ package CASE
 class MotherBoard{
     var start:Boolean = false
     val k = monitor()
+    val hd = hardDisk()
+    val rc = ramCard()
     private var usbPort:Boolean = false
 
     inner class CPU(){
@@ -17,15 +19,15 @@ class MotherBoard{
                         1 -> usbPort = true
                         2 -> gpu().connect()
                         3 -> {
-                            ramCard().connect()
+                            rc.connect()
                             var s = ramCard().fetch()
                             println(s)
                         }
                         4 -> {
-                            hardDisk().connect()
+                            hd.connect()
                             println("Enter a value of Int: ")
                             var x: Int = Integer.valueOf(readLine())
-                            hardDisk().store(x)
+                            hd.store(x)
                         }
                         5 -> {
                             println("Do you wanna power off?")
@@ -58,10 +60,10 @@ class MotherBoard{
         }
 
         override fun fetch():ArrayList<Int> {
-           /* if (conEstablishment){
-                return hardDisk().fetch()
-            }*/
-            return hardDisk().fetch()
+            if (conEstablishment){
+                return hd.fetch()
+            }
+            return hd.fetch()
         }
     }
 }

@@ -10,8 +10,7 @@ class hardDisk:sata{
         println("True connection for hardDisk")
     }
     fun store(a:Int){
-        arrayList.add(a)
-        /*println(connect)
+        println(connect)
         if (connect){
             if (a <=1000){
                 balance -= 2
@@ -26,7 +25,7 @@ class hardDisk:sata{
                 arrayList.add(a)
             }
 
-        }*/
+        }
         print(arrayList)
     }
 
@@ -35,11 +34,9 @@ class hardDisk:sata{
         println("The balance is $balance GB")
     }
     override fun fetch(): ArrayList<Int> {
-       /* if (connect){
-
+        if (connect){
             return arrayList
-        }*/
-        println(arrayList)
-        return arrayList
+        }
+        return arrayListOf(0)
     }
 }
