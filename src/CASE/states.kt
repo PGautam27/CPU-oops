@@ -16,3 +16,12 @@ enum class switchOn(){
         }
     }
 }
+
+enum class inputAndOutputPort(){
+    INPUT,OUTPUT,NONE;
+    companion object{
+        fun inAndOut(obj:inputAndOutputPort):Boolean{
+            return obj.compareTo(INPUT)==0 || obj.compareTo(OUTPUT)==0
+        }
+    }
+}

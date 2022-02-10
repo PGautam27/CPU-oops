@@ -1,6 +1,7 @@
 package CASE
-internal var state = states.POWEROFF
 internal var switch = switchOn.SWITCHOFF
+internal var state = states.POWEROFF
+internal var inputOutput = inputAndOutputPort.NONE
 class Case(i:Int) {
     private val k = smps(i)
     init {
@@ -71,9 +72,14 @@ class Case(i:Int) {
                         when(s){
                             1 -> {
                                 usbPort = true
-
+                                inputOutput = inputAndOutputPort.INPUT
+                                println("Input received")
                             }
-                            2 -> gpu().connect()
+                            2 -> {
+                                gpu().connect()
+                                inputOutput = inputAndOutputPort.OUTPUT
+                                println("IMAGE: -_- ^_^ ^_-")
+                            }
                             3 -> {
                                 rc.connect()
                                 var s = ramCard().fetch()
