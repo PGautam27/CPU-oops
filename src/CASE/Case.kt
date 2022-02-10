@@ -102,7 +102,6 @@ class Case(i:Int) {
                                 var yesOrNo = readLine()
                                 if (yesOrNo.toString() == "yes"){
                                     state = states.POWEROFF
-                                    switch = switchOn.SWITCHOFF
                                     return
                                 }
                                 else{
