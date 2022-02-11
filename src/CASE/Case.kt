@@ -58,7 +58,6 @@ class Case(i:Int) {
         private val hd = hardDisk()
         private val rc = ramCard()
         var usbPort:Boolean = false
-        var audioJack:Boolean = false
         inner class CPU(){
             init {
                 work()
